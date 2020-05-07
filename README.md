@@ -2,26 +2,23 @@
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 9.0.7.
 
-## Development server
+## Clonar repositorio en el siguiente enlace
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+https://github.com/MarioDH/TestFront01.git
 
-## Code scaffolding
+## Instalar paquetes npm requeridos
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+Ejecutar `npm install` (Los paquetes ya estan integrados a traves del package.json)
 
-## Build
+## Ejecutar Servidor de desarrollo
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `--prod` flag for a production build.
+Ejecutar `ng serve` 
 
-## Running unit tests
+Navegar a `http://localhost:4200/`
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+## Pendientes
+Error de Cors al solicitar EMPLEADOS y empleados por GRUPO
 
-## Running end-to-end tests
+## Autor
+Mario Dominguez
 
-Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
-
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
