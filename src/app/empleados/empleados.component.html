@@ -1,0 +1,116 @@
+<div class="container">
+    <br>
+    <ul class="nav nav-tabs" id="myTab" role="tablist">
+        <li class="nav-item">
+            <a class="nav-link active" id="listEmploye-tab" data-toggle="tab" href="#listEmploye" role="tab"
+                aria-controls="listEmploye" aria-selected="true">Lista de Empleados</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" id="addEmploye-tab" data-toggle="tab" href="#addEmploye" role="tab"
+                aria-controls="addEmploye" aria-selected="false">Agregar Empleado</a>
+        </li>
+    </ul>
+    <div class="tab-content" id="myTabContent">
+        <div class="tab-pane fade show active" id="listEmploye" role="tabpanel" aria-labelledby="listEmploye-tab">
+
+            <table mdbTable #tableEl="mdbTable" class="z-depth-1">
+                <thead>
+                    <tr>
+                        <th *ngFor="let head of headElements; let i = index" scope="col">{{head}}
+                        </th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let el of elements; let i = index">
+                        <th *ngIf="i+1 >= mdbTablePagination.firstItemIndex && i < mdbTablePagination.lastItemIndex"
+                            scope="row">{{el.id}}</th>
+                        <td *ngIf="i+1 >= mdbTablePagination.firstItemIndex && i < mdbTablePagination.lastItemIndex">
+                            {{el.first}}</td>
+                        <td *ngIf="i+1 >= mdbTablePagination.firstItemIndex && i < mdbTablePagination.lastItemIndex">
+                            {{el.last}}</td>
+                        <td *ngIf="i+1 >= mdbTablePagination.firstItemIndex && i < mdbTablePagination.lastItemIndex">
+                            {{el.handle}}</td>
+                    </tr>
+                </tbody>
+                <tfoot class="grey lighten-5 w-100">
+                    <tr>
+                        <td colspan="4">
+                            <mdb-table-pagination [tableEl]="tableEl" [searchDataSource]="elements">
+                            </mdb-table-pagination>
+                        </td>
+                    </tr>
+                </tfoot>
+            </table>
+            <button  (click)="actualizarLista()" type="button" class="btn btn-dark">
+                    Actualizar Lista</button>
+        </div>
+        <div class="tab-pane fade" id="addEmploye" role="tabpanel" aria-labelledby="addEmploye-tab">
+
+            <form [formGroup]="controlFormulario" #f="ngForm">
+                <!-- Inicio Detalles-->
+
+                <br />
+                <div class="container">
+
+                    <div class="form-row">
+                        <div class="form-group col-md-6">
+                            <label>name:</label>
+                            <input name="name" id="name" autocomplete="off" class=" form-control tamañoInput"
+                                formControlName="name">
+                            <div
+                                *ngIf="controlFormulario.controls['name'].invalid && (controlFormulario.controls['name'].dirty || controlFormulario.controls['name'].touched)">
+                                <div *ngIf="controlFormulario.controls['name'].errors.required" class="campoInvalido">
+                                    Este campo es
+                                    requerido</div>
+                            </div>
+                        </div>
+                        <div class="form-group col-md-6">
+                            <div *ngIf="datoGuardado" class="alert alert-warning alert-dismissible fade show"
+                                role="alert">
+                                <strong>Dato guardado</strong> correctamente.
+                                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                                    <span aria-hidden="true">&times;</span>
+                                </button>
+                            </div>
+                        </div>
+
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group col-md-6">
+                            <label>Last_name:</label>
+                            <input name="last_name" id="last_name" autocomplete="off" class=" form-control tamañoInput"
+                                formControlName="last_name">
+                            <div
+                                *ngIf="controlFormulario.controls['last_name'].invalid && (controlFormulario.controls['last_name'].dirty || controlFormulario.controls['last_name'].touched)">
+                                <div *ngIf="controlFormulario.controls['last_name'].errors.required"
+                                    class="campoInvalido">Este
+                                    campo es requerido</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group col-md-6">
+                            <label>Birthday:</label>
+                            <input  type="date" name="birthday" id="birthday" autocomplete="off" class=" form-control tamañoInput"
+                                formControlName="birthday">
+                            <div
+                                *ngIf="controlFormulario.controls['birthday'].invalid && (controlFormulario.controls['birthday'].dirty || controlFormulario.controls['birthday'].touched)">
+                                <div *ngIf="controlFormulario.controls['birthday'].errors.required"
+                                    class="campoInvalido">Este campo
+                                    es requerido</div>
+                            </div>
+                        </div>
+                    </div>
+
+
+
+                </div>
+                <!--Fin detalles-->
+                <button [disabled]="!f.valid" (click)="guardar()" type="button" class="btn btn-dark">
+                    Guardar</button>
+            </form>
+
+        </div>
+    </div>
+    <!-- Nav Tabs -->
+</div>
