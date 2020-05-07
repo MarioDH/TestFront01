@@ -10,6 +10,9 @@ import { EmpleadosComponent } from './empleados/empleados.component';
 import { GruposComponent } from './grupos/grupos.component';
 import { PaginaprotegidaComponent } from './paginaprotegida/paginaprotegida.component';
 import { NotfoundComponent } from './notfound/notfound.component';
+import { jqxGridModule } from 'jqwidgets-ng/jqxgrid';
+import { jqxDragDropModule } from 'jqwidgets-ng/jqxdragdrop';
+import { CommonModule } from '@angular/common';
 
 @NgModule({
   declarations: [
@@ -23,10 +26,13 @@ import { NotfoundComponent } from './notfound/notfound.component';
   imports: [
     BrowserModule,
     FormsModule,
+    CommonModule,
     ReactiveFormsModule,
     AppRoutingModule,
     HttpClientModule,
-    MDBBootstrapModule.forRoot()
+    MDBBootstrapModule.forRoot(),
+    jqxGridModule,
+    jqxDragDropModule
   ],
   schemas:[NO_ERRORS_SCHEMA],
   providers: [],

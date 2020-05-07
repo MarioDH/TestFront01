@@ -17,6 +17,9 @@
     ]
   },
   "include": ["node_modules/angular-bootstrap-md/**/*.ts", "src/**/*.ts"],
+  "files": [
+    "node_modules/jqwidgets-scripts/jqwidgets-ts/angular_jqxgrid.ts",
+  ],
   "angularCompilerOptions": {
     "fullTemplateTypeCheck": true,
     "strictInjectionParameters": true
